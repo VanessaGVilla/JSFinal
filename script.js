@@ -51,3 +51,68 @@ $keys.click(function() {
     $screen.html($screen.html() + keyVal);
   }
 })
+
+               $(window).keydown(function(e) {
+  console.log(e.which);
+  switch (e.which) {
+    case 96:
+      key = 0;
+      break;
+    case 97:
+      key = 1;
+      break;
+    case 98:
+      key = 2;
+      break;
+    case 99:
+      key = 3;
+      break;
+    case 100:
+      key = 4;
+      break;
+    case 101:
+      key = 5;
+      break;
+    case 102:
+      key = 6;
+      break;
+    case 103:
+      key = 7;
+      break;
+    case 104:
+      key = 8;
+      break;
+    case 105:
+      key = 9;
+      break;
+    case 111:
+      key = '÷';
+      break;
+    case 109:
+      key = '-';
+      break;
+    case 106:
+      key = 'x';
+      break;
+    case 107:
+      key = '+';
+      break;
+    case 13:
+      key = '=';
+      break;
+    case 110:
+      key = '.';
+      break;
+    case 27:
+      key = 'clear';
+      break;
+    default:
+      return false;
+  }
+
+  $('[data-val="' + key + '"]').addClass('active').click();
+
+}).keyup(function(){
+  $('.active').removeClass('active');
+});
+     

@@ -26,3 +26,28 @@ $keys.click(function() {
     }
     decimal = false;
   }
+
+             else if ($(this).parent().is('.operators')) {
+    var lastChar = output[output.length - 1];
+    if (output != '' && operators.indexOf(lastChar) == -1) {
+      $screen.html($screen.html() + keyVal);
+    } else if (output == '' && keyVal == '-') {
+      $screen.html($screen.html() + keyVal);
+    }
+    if (operators.indexOf(lastChar) > -1 && output.length > 1) {
+      $screen.html($screen.html().replace(/.$/, keyVal));
+    }
+    decimal = false;
+  }
+  // decimal
+  else if (keyVal == '.') {
+    if (!decimal) {
+      $screen.html($screen.html() + keyVal);
+      decimal = true;
+    }
+  }
+  // buttons
+  else {
+    $screen.html($screen.html() + keyVal);
+  }
+})

@@ -44,8 +44,9 @@ h2 {
 }
 
 .calculator-button {
-	border-color: lightgrey;
+	border-color: pink;
 	border-style: solid;
+	border-radius: 4px;
 	cursor: pointer;
 	display: inline;
 	font-size: 4em;
@@ -53,6 +54,7 @@ h2 {
 	padding: 20px 40px;
 	height: 150px;
 	width: 150px;
+	box-shadow: 0 4px #b0d2cf;
 }
 
 .double-width {

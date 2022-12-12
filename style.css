@@ -1,133 +1,210 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
 body {
-  min-height: 100%;
+  background: rgb(38, 222, 225);
+  font-family: 'Figtree', sans-serif;
+  transition: background .1s;
 }
 
-body {
-  background: linear-gradient(180deg, #feead2, #fff8ee);
-  font-family: Open Sans;
-  font-size: 16px;
-  &:before {
-    content: '';
-    width: 800px;
-    height: 600px;
-    background: #f00;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-  }
+.background {
+  background: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+
 }
 
-     .calculator {
-      width: 300px;
-      background: linear-gradient(135deg, #fcaf3b, #f25c2a);
-      box-shadow: 0 10px 28px #d8724a;
-      margin: 30px auto;
-      position: absolute;
-      overflow: hidden;
-      border-radius: 20px;
-      top: 50%;
-      left: 50%;
-       z-index: 1;
-       transform: translate(-50%, -62%);
-      }
+.calc {
+  font-family: 'Figtree', sans-serif;
+  text-rendering: geometricPrecision;
+  width: 260px;
+  background: rgb(62, 62, 62);
+  margin: 100px auto 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2),
+    inset 0 3px 0 rgba(255, 255, 255, 0.2);
+  padding: 20px;
+}
 
-         .screen {
-  background: #fff;
-  padding: 15px 28px;
-  height: 69px;
+.display {
+  font-family: 'Figtree', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 35px;
+  padding: 10px;
   text-align: right;
-  font-size: 29px;
-  color: #4c455a;
+  border-radius: 2px;
+  box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.header .titles {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgb(255, 253, 253);
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: -8px;
+  padding-bottom: 8px;
+  text-align: right;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.15);
+  user-select: none;
+}
+
+.display-main {
+  height: 38px;
+}
+
+.display-indicate {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.05);
+  text-align: left;
+  margin: -5px 0 -2px -5px;
+  text-transform: uppercase;
+  user-select: none;
+  transition: color 0.1s ease-in;
+}
+.max {
+  color: rgba(255, 150, 150, 0.8);
+}
+
+.display-operations {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 3px;
+  margin-top: 4px;
+}
+
+.row {
+  margin-left: -12px;
+  margin-top: 10px;
+}
+
+.row:after,
+.bottom-row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.left,
+.right {
+  float: left;
+}
+
+.button {
   position: relative;
-  overflow: hidden;
-  z-index: 1;
-  box-shadow: 0 2px 3px #d8724a;
-  transition: color .6s ease-in-out;
-
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-
+  top: 0;
+  height: 41px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  padding: 9px 0 11px 0;
+  border-radius: 2px;
+  float: left;
+  width: 56px;
+  background: rgba(255, 255, 255, 0.8);
+  margin-left: 12px;
+  text-transform: uppercase;
+  border: 0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.1s;
+  cursor: pointer;
+  user-select: none;
 }
 
-.buttons {
-
-  & button {
-    float: right;
-    border: none;
-    background: transparent;
-    color: #fff;
-    padding: 15px 10px;
-    outline: none;
-    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
-    border-radius: 14px;
-    focus: none!important;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);;
-    }
-
-    &:active, &.active {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 14px;
-    }
-
-  }
-
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-
-  & .numbers {
-    float: left;
-    width: 75%;
-    padding: 10px;
-
-    & button {
-      width: 33.3333%;
-      padding: 18px 10px;
-    }
-  }
-
-  & .operators {
-    float: right;
-    width: 25%;
-    padding: 16px 10px 10px;
-    background: rgba(0, 0, 0, 0.1);
-    min-height: 260px;
-
-    & button {
-      width: 100%;
-      padding: 11px 10px;
-      
-      &[data-val="x"] {
-        font-size: 13px;
-      }
-      
-      &[data-val="-"] {
-        font-size: 18px;
-      }
-
-      &[data-val="="] {
-        font-size: 16px;
-      }
-    }
-
-  }
+.button:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
 }
+.button:active {
+  top: 1px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.button:focus {
+  outline: 0;
+}
+
+.ac,
+.ce {
+  background: rgb(255, 151, 192);
+}
+
+.ac:hover,
+.ce:hover {
+  background: rgb(73, 73, 73);
+}
+
+.minus {
+  padding-top: 11px;
+  padding-bottom: 9px;
+}
+
+.zero {
+  width: 124px;
+}
+
+.eq {
+  margin-top: 10px;
+  padding: 35px 0 15px 0;
+}
+
+.mult {
+  text-transform: none;
+  padding-top: 9px;
+  padding-bottom: 11px;
+}
+
+
+
+.tips {
+  width: 300px;
+  margin: 70px auto;
+}
+
+.tips .title {
+  font-size: 20px;
+  color: rgb(252, 199, 230);
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.tips .hint {
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.hint.small {
+  text-align: center;
+  font-size: 14px;
+  margin-top: -12px;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.hint-sel {
+  background: rgba(175, 50, 50, 0.8);
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(250, 250, 250, 0.9);
+  padding: 3px 5px;
+  border-radius: 2px;
+  margin: 0 3px;
+}
+
+.hint-btn {
+  background: rgba(30, 30, 30, 0.6);
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(250, 250, 250, 0.9);
+  padding: 3px 5px;
+  border-radius: 2px;
+  margin: 0 3px;
+}
+
 
 
 

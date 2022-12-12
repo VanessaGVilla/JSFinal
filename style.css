@@ -17,8 +17,12 @@ body {
 
 }
 
-h1 {
+  h1 {
   font-family: 'Dancing Script', cursive;
+  text-shadow: 0 0 3px #f4e8e8, 0 0 5px #fc75b4;
+  color: rgb(57, 56, 56);
+}
+
   color: rgb(74, 71, 71);
 }
 

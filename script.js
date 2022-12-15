@@ -1,3 +1,5 @@
+/*The vars statement declares a function all buttons on the calculator.*/
+
 var vars = {
   display: document.getElementsByClassName("display-main")[0],
   displayInfo: document.getElementsByClassName("display-operations")[0],
@@ -22,6 +24,8 @@ var vars = {
   nine: document.getElementsByClassName("nine")[0]
 }
 
+/*This function is for the display screen and buttons with an event listener. An event listener is a procedure in Javascript
+that is waiting for an event to occur when the button is pressed. The event is a user clicking on the calculator button. */
 
 for (var btn in vars) {
 if (btn === "display" || btn === "displayInfo" || btn === "displayInd") continue;
@@ -53,6 +57,8 @@ var keyMap = {
   46 : "ac"
 };
 
+ /*This function will run when the equal button is pressed. It will run through the loop and give us our sum. */ 
+  
 if (add) {
   return keyMap[event.which];
 } else {
@@ -69,6 +75,8 @@ if (add) {
 
 return ""
 }
+
+/*Function for calculator buttons. The function will execute when the button is pressed, therefore invoking the function to execute.*/
 
 function toStr(btn) {
 var btns = {
@@ -88,9 +96,15 @@ var btns = {
   minus: "-",
   dot: "."
 }
+
+/* If button ce is pressed and is true it will return the value of the button ce.*/
+
 if (btn === "ce") return ""
 return btns[btn];
 }
+
+
+/*This function makes our math operators work when pressed. Returns a Variant (String) representation of a number.*/
 
 function removeZero(str) {
 var result = str;
@@ -98,6 +112,11 @@ var result = str;
 var senseOperators = ["+", "-"]
 
 var dotCond, firstZero, operZero;
+  
+  
+  /* This function is defining i. It takes a function and is returning a function. the result.slice is the body of the function.  
+  It's defining if this certain  operation happens, 
+  it will return a certain result based on the conditons defined.*/
 
 for (var i = 0; i < result.length - 1; i++) {
 
@@ -159,6 +178,8 @@ if (operators1.indexOf(result[0]) !== -1) {
 return result;
 }
 
+/*This function lets the user remove the last function pressed.*/
+
 function removeLast(str) {
 var operators = ["+", "-", "*", "/"],
   cond, result = str;
@@ -175,6 +196,8 @@ if (str.length === 1) {
 }
 }
 
+/* This function finds the maximum value from a set of numbers.*/
+
 var max = {
 add: function() {
   if (!vars.displayInd.classList.toggle("max")) {
@@ -188,6 +211,9 @@ remove: function() {
 }
 }
 
+/*This function refers to the ac and ce buttons to reflect the number 0
+ */
+
 function calculate(btn, isFromKey) {
 var operators = ["minus", "plus", "div", "mult"];
 
@@ -197,6 +223,8 @@ if (btn === "ac") {
   max.remove();
   return;
 }
+  
+  
 
 if (btn === "ce") {
   var result = removeLast(vars.displayInfo.innerText);
@@ -208,6 +236,8 @@ if (btn === "ce") {
   max.remove();
 }
 
+  /*This button refers to the equal button
+  
 if (btn === "eq") {
   vars.displayInfo.innerText = vars.display.innerText;
   max.remove();
@@ -250,6 +280,7 @@ if (calc.length < 14) {
 
 }
 
+/*Colors added
 var colors = ["dark pink", "lightblue"];
 function getBinaryRnd (){
 var rnd = Math.random();

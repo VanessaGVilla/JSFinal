@@ -115,8 +115,9 @@ var dotCond, firstZero, operZero;
   
   
   /* This function is defining i. It takes a function and is returning a function. the result.slice is the body of the function.  
-  It's defining if this certain  operation happens, 
-  it will return a certain result based on the conditons defined.*/
+  It's defining if this certain  operation happens, it will return a certain result based on the conditons defined. Ive read
+  
+  */
 
 for (var i = 0; i < result.length - 1; i++) {
 
